@@ -1,0 +1,44 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    transform-origin: -600% 50%;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform-origin: -600% 50%;
+    transform: rotate(360deg);
+  }
+}
+
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: blue;
+  animation: spin 2s linear infinite;
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  animation: spin2 2s linear infinite;
+}
