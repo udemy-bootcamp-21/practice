@@ -1,0 +1,28 @@
+body {
+  height: 200vh;
+}
+
+.grid {
+  position: sticky;
+  top: 0px;
+  margin: 0 auto;
+  width: 600px;
+  padding-block: 20px;
+}
+
+.grid__container {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  height: 100%;
+  align-items: center;
+}
+
+.grid__item {
+  font-size: 8px;
+  justify-self: center;
+}
+
+.grid__item img {
+  width: 80px;
+  height: 20.34px;
+}
