@@ -11,12 +11,14 @@
   justify-content: center;
 }
 
-.grid__item {
+.grid__image {
+  height: 133.4px;
   overflow: hidden;
 }
 
-.grid__item img {
+.grid__image img {
   width: 100%;
+  transition: all .3s;
 }
 
 .grid__item img:hover {
