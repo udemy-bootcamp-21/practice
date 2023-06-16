@@ -27,3 +27,21 @@ postButton.addEventListener('click',() => {
   imageLoader.src=`${imgURL[num]}`
 })
 
+
+window.addEventListener('keydown',e =>{
+  if(e.key === 37 || e.key === "ArrowRight"){
+    num+=1
+    if(num > 5){
+      num = 0
+    }
+    return imageLoader.src=`${imgURL[num]}`
+  }
+  if(e.key === 39 || e.key === "ArrowLeft"){
+    num-=1
+
+    if(num < 0){
+      num = 5
+    }
+    return imageLoader.src=`${imgURL[num]}`
+  }
+})
