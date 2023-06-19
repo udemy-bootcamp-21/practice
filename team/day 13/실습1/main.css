@@ -1,0 +1,26 @@
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right,white,grey);
+}
+
+.basket__grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr );
+  gap: 10px;
+}
+
+.basket__item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}
+
+.space {
+  display: flex;
+  flex-direction: column;
+}
