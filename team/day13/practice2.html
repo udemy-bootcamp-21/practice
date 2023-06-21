@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const App = () => {
+        return (
+          <>
+            <h1>가고싶은 여행지를 검색해봐요!</h1>
+            <form
+              method="get"
+              action="https://www.goodchoice.kr/product/result"
+              target="_self"
+            >
+              <label for="search">가고싶은도시 :</label>
+              <input id="serach" type="text" name="keyword" required />
+              <input type="submit" value="검색하기" />
+            </form>
+            <footer>여기어때</footer>
+          </>
+        );
+      };
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>

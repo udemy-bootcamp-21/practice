@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const App = () => {
+        let [img1, setImg1] = React.useState(0);
+
+        let num = 0;
+        let image = [
+          "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_1280.jpg",
+          "https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg",
+          "https://cdn.pixabay.com/photo/2018/04/16/16/16/sunset-3325080_1280.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmLpf_nlGRY7Ia4t-Qffc9u2zbzkHro2nvRg&usqp=CAU",
+        ];
+        const imgClick = () => {
+          setImg1(Math.floor((Math.random(10) * 100) % image.length));
+        };
+
+        return (
+          <div>
+            <img
+              src={image[img1]}
+              style={{ width: "100%" }}
+              alt=""
+              onClick={imgClick}
+            />
+          </div>
+        );
+      };
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>

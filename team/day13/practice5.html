@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @keyframes spin {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .spinner {
+        border-top: 5px solid #6c9976;
+        border-right: 5px solid #6c9976;
+        border-bottom: 5px solid #6c9976;
+        border-left: 5px solid #fff;
+        animation: spin 1s linear infinite;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const Spinner = () => <div className="spinner"></div>;
+      const App = () => {
+        let [clock, setClock] = React.useState([]);
+
+        setInterval(() => {
+          const date = new Date();
+          setClock([date.getHours(), date.getMinutes(), date.getSeconds()]);
+        }, 1000);
+
+        return (
+          <React.Fragment>
+            {clock.length > 0 ? (
+              <div>
+                {String(clock[0]).padStart(2, "0")} :
+                {String(clock[1]).padStart(2, "0")} :
+                {String(clock[2]).padStart(2, "0")}
+              </div>
+            ) : (
+              <Spinner />
+            )}
+          </React.Fragment>
+        );
+      };
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>

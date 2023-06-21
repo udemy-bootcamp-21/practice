@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const App = () => {
+        const test = (e) => {
+          e.preventDefault();
+          const data = new FormData(e.currentTarget);
+          const obj = {};
+          data.forEach((value, key) => (obj[key] = value));
+          console.log(data);
+          console.log(obj);
+        };
+        return (
+          <>
+            <form method="get" onSubmit={test}>
+              <label for="name">사용자명: </label>
+              <input type="text" id="name" name="name" />
+              <br />
+              <label for="password">비밀번호: </label>
+              <input type="password" id="password" name="password" />
+              <br />
+              <label for="email">이메일: </label>
+              <input type="email" id="email" name="email" />
+              <br />
+              <label for="tel">전화번호: </label>
+              <input type="tel" id="tel" name="tel" />
+              <br />
+              <label for="checkbox">자동로그인: </label>
+              <input type="checkbox" id="checkbox" name="checkbox" />
+              <br />
+              <input type="reset" value="초기화" />
+              <button type="submit">로그인</button>
+            </form>
+          </>
+        );
+      };
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>

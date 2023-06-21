@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습1</title>
+  </head>
+  <body style="width: 100%">
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const App = (props) => {
+        const { teamName } = props;
+        return (
+          <main
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              gap: "2rem",
+            }}
+          >
+            <h1 style={{ fontSize: "5rem" }}>우리는 팀{teamName}이에요~!~!</h1>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              <h1>팀원</h1>
+              <table>
+                <thead>
+                  <td style={{ textAlign: "center" }}>강정구</td>
+                  <td style={{ textAlign: "center" }}>김은태</td>
+                  <td style={{ textAlign: "center" }}>송소연</td>
+                  <td style={{ textAlign: "center" }}>정혜선</td>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                      }}
+                    >
+                      <img
+                        src="https://avatars.githubusercontent.com/u/93317914?v=4"
+                        alt="프로필"
+                        style={{ width: "100%" }}
+                      />
+                    </td>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                      }}
+                    >
+                      <img
+                        src="https://avatars.githubusercontent.com/u/126760592?v=4"
+                        alt="프로필"
+                        style={{ width: "100%" }}
+                      />
+                    </td>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                      }}
+                    >
+                      <img
+                        src="https://avatars.githubusercontent.com/u/57799211?v=4"
+                        alt="프로필"
+                        style={{ width: "100%" }}
+                      />
+                    </td>
+                    <td
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                      }}
+                    >
+                      <img
+                        src="https://avatars.githubusercontent.com/u/90498108?v=4"
+                        alt="프로필"
+                        style={{ width: "100%" }}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style={{ textAlign: "center" }}>
+                      <a href="https://github.com/jgkang9402" target="_blank">
+                        GitHub
+                      </a>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <a href="https://github.com/Eun-T" target="_blank">
+                        GitHub
+                      </a>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <a href="https://github.com/soyeonsong">GitHub</a>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <a href="https://github.com/seonnn">GitHub</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <h1>포부</h1>
+              <ul>
+                <li>팀명좋고 팀원좋고 느낌이 좋군요~!</li>
+                <li>뿌셔뿌셔 리액트 뿌셔~!~!~!! fire🔥</li>
+                <li>
+                  새로운 팀원들과 새로운 시작을 하게 된 만큼 팀원들과 함께 남은
+                  기간 열심히 학습하여 취업을 할 수 있도록 노력하겠습니다!
+                </li>
+                <li>최선을 다해서 프로젝트에 열심히 임하겠습니다</li>
+              </ul>
+            </div>
+          </main>
+        );
+      };
+
+      const root = document.getElementById("root");
+      ReactDOM.render(<App teamName={"2NE1"} />, root);
+    </script>
+  </body>
+</html>

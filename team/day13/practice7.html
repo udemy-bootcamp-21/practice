@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta typeset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const btns = [
+        { type: "+", text: "더하기" },
+        { type: "-", text: "빼기" },
+        { type: "*", text: "곱하기" },
+        { type: "/", text: "나누기" },
+      ];
+      const App = () => {
+        const [firstVal, setFirstVal] = React.useState(null);
+        const [secondVal, setSecondVal] = React.useState(null);
+        const [calculatedNum, setCalculatedNum] = React.useState(0);
+        const handleNumber = (e, idx) => {
+          if (idx === 1) setFirstVal(e.target.value);
+          else setSecondVal(e.target.value);
+        };
+        const calculateNumber = (type) => {
+          if (!firstVal || !secondVal)
+            return window.alert("값을 모두 입력해주세요.");
+          switch (type) {
+            case "+":
+              setCalculatedNum(+firstVal + +secondVal);
+              break;
+            case "-":
+              setCalculatedNum(+firstVal - +secondVal);
+              break;
+            case "*":
+              setCalculatedNum(+firstVal * +secondVal);
+              break;
+
+            default:
+              setCalculatedNum(+firstVal / +secondVal);
+              break;
+          }
+        };
+        return (
+          <>
+            <div className="container">
+              <input
+                type="number"
+                value={firstVal}
+                onChange={(e) => handleNumber(e, 1)}
+              />
+              <input
+                type="number"
+                value={secondVal}
+                onChange={(e) => handleNumber(e, 2)}
+              />
+              {btns.map((item, idx) => {
+                return (
+                  <button
+                    onClick={() => {
+                      calculateNumber(item.type);
+                    }}
+                  >
+                    {item.text}
+                  </button>
+                );
+              })}
+            </div>
+            <div>결과:{calculatedNum}</div>
+          </>
+        );
+      };
+      const root = document.getElementById("root");
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
