@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useDebounce = (value, delay) => {
   // value값이 들어오고 delay설정한 시간만큼뒤에 debounceValue 리턴함
